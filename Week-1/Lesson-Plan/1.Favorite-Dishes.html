@@ -1,0 +1,20 @@
+<html>
+  <body></body>
+</html>
+
+<script>
+  //create array of favorite dishes
+  const favDishes = ["Lechon", "Sisig", "Tocino", "Fried Chicken", "Spaghetti"];
+
+  //create and append ul to DOM
+  const ul = document.createElement("ul");
+  const body = document.querySelector("body");
+  body.appendChild(ul);
+
+  //create a loop to assign and append li items to ul
+  for (let i = 0; i < favDishes.length; i++) {
+    let il = document.createElement("il");
+    li.innerHTML = favDishes[i];
+    ul.appendChild(li);
+  }
+</script>

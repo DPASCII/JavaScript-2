@@ -1,0 +1,31 @@
+<html>
+  <body>
+    <p>
+      This is some text in a body to show some text in a body showing text in a
+      body
+    </p>
+    <button>Dark Mode</button>
+  </body>
+</html>
+
+<script>
+  //add event listener on button click
+  document.querySelector("button").addEventListener("click", function (event) {
+    const body = document.querySelector("body");
+    const button = document.querySelector("button");
+
+    if (button.innerHTML === "Dark Mode") {
+      //change background color to black and vice versa
+      body.style.backgroundColor = "black";
+      //change text color to white and vice versa
+      body.style.color = "white";
+      //change button text to light mode and vice versa
+      button.innerHTML = "Light Mode";
+      return;
+    }
+
+    body.style.backgroundColor = "white";
+    body.style.color = "black";
+    button.innerHTML = "Dark Mode";
+  });
+</script>

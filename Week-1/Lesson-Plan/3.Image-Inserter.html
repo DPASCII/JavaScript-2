@@ -1,0 +1,16 @@
+<html>
+  <body></body>
+</html>
+
+<script>
+  //declare function with imgUrl and elementToAppendImageTo parameters
+  function imageInserter(imgUrl, elementToAppendImageTo) {
+    //call element to append image to
+    let element = document.querySelector(elementToAppendImageTo);
+    //create IMG tag and append the src
+    let img = document.createElement("img");
+    //append img to element
+    img.src = imgUrl;
+    element.appendChild(img);
+  }
+</script>

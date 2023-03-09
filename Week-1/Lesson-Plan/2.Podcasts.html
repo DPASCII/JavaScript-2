@@ -1,0 +1,50 @@
+<html>
+  <body></body>
+</html>
+
+<script>
+  const podcasts = [
+    {
+      name: "The mystery om of Johan Klausen Varbourg",
+      imageUrl: "https://picsum.photos/536/354",
+    },
+    {
+      name: "Tips about dogs with small legs",
+      imageUrl: "https://picsum.photos/536/354",
+    },
+    {
+      name: "You, me, we and us",
+      imageUrl: "https://picsum.photos/536/354",
+    },
+    {
+      name: "Breakfast news - Dinner edition",
+    },
+  ];
+
+  //create and append ul to the DOM
+  const ul = document.createElement("ul");
+  const body = document.querySelector("body");
+  body.appendChild(ul);
+
+  //create loop to do the ff:
+  //Create an h1 element
+  //Change the innerHTML of the h1 to equal the name of the current podcast
+  //Append the h1 to the li
+  //Now add an image to the li with the src set to the imageUrl. But only if the imageUrl key exists on the object!
+  //Append li to ul
+  for (let i = 0; i < podcasts.length; i++) {
+    let li = document.createElement("li");
+    let h1 = document.createElement("h1");
+    h1.innerHTML = podcasts[i].name;
+    li.appendChild(h1);
+    if ("imageUrl" in podcasts[i] === false) {
+      ul.appendChild(li);
+      continue;
+    }
+    let img = document.createElement("img");
+    img.src = podcasts[i].imageUrl;
+
+    li.appendChild(img);
+    ul.appendChild(li);
+  }
+</script>

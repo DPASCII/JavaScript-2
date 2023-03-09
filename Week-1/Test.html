@@ -1,0 +1,19 @@
+<html>
+  <body>
+    <button>That Ass</button>
+  </body>
+</html>
+
+<script>
+  document.querySelector("button").addEventListener("click", function (event) {
+    // what does the event do?
+    console.log(event);
+    const body = document.querySelector("body");
+    if (body.style.backgroundColor === "red") {
+      body.style.backgroundColor = null;
+    } else {
+      body.style.backgroundColor = "red";
+    }
+    console.log(body);
+  });
+</script>
