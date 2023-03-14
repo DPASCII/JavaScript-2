@@ -17,14 +17,13 @@ function danishLetters(string) {
         continue;
       }
 
-      output[input[i]] = 0;
-      output[input[i]] += 1;
+      output[input[i]] = 1;
       output.total += 1;
       continue;
     }
   }
 
-  console.log(output);
+  return output;
 
   // if (string.match("æ") !== null) {
   //   output.æ = string.match(/æ/g).length;
