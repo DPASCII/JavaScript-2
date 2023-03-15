@@ -1,0 +1,109 @@
+<html>
+  <header style="font-size: 30px">
+    <b>Spirit Animal Generator</b>
+  </header>
+  <br />
+  <body>
+    <label for="option">Choose an option:</label>
+
+    <select id="option">
+      <option value="choose">Choose method</option>
+      <option value="click">Click to Generate</option>
+      <option value="hover">Hover to Generate</option></select
+    ><br /><br />
+
+    <label for="name">Input Name:</label><br /><br />
+    <input type="text" id="name" name="name" size="30" /><br /><br />
+
+    <button id="button">Generate Spirit Animal</button><br /><br />
+
+    <p id="output" style="font-size: 60px; color: blueviolet"></p>
+  </body>
+</html>
+
+<script>
+  //array for animals
+  const animals = [
+    "horse",
+    "dog",
+    "cat",
+    "hamster",
+    "butterfly",
+    "panther",
+    "tiger",
+    "lion",
+    "pig",
+    "meerkat",
+  ];
+
+  //array for adjectives
+  const adj = ["fast", "confused", "stupid", "majestic"];
+
+  function spiritAnimalGenerator(name) {
+    const input = name;
+
+    if (input === "") {
+      document.getElementById("output").innerHTML = "INPUT A NAME";
+      return;
+    }
+
+    //store string from input & append random adjective and animal to string
+    const output = `${input} - The ${
+      adj[Math.floor(Math.random() * adj.length)]
+    } ${animals[Math.floor(Math.random() * animals.length)]}`;
+
+    //append string to input box
+    document.getElementById("output").innerHTML = output;
+  }
+
+  let CURRENT_STATE = "choose";
+
+  option.addEventListener("change", () => {
+    CURRENT_STATE = document.getElementById("option").value;
+  });
+
+  document.getElementById("button").addEventListener("click", function (event) {
+    if (CURRENT_STATE === "click") {
+      spiritAnimalGenerator(document.getElementById("name").value);
+    }
+  });
+
+  document
+    .getElementById("name")
+    .addEventListener("mouseover", function (event) {
+      if (CURRENT_STATE === "hover") {
+        spiritAnimalGenerator(document.getElementById("name").value);
+      }
+    });
+  // option.addEventListener("change", () => {
+  //   option = document.getElementById("option").value;
+  //   console.log(option);
+  //   let method = "";
+  //   let action = "";
+  //   if (option === "click") {
+  //     method = "button";
+  //     action = "click";
+  //   } else if (option === "hover") {
+  //     method = "name";
+  //     action = "mouseover";
+  //   }
+
+  //   document.getElementById(method).addEventListener(action, function (event) {
+  //     //check for errors
+  //     const input = document.getElementById("name").value;
+  //     if (input == "") {
+  //       document.getElementById("output").innerHTML = "INPUT A NAME";
+  //       return;
+  //     }
+
+  //     //store string from input & append random adjective and animal to string
+
+  //     const name = `${input} - The ${
+  //       adj[Math.floor(Math.random() * adj.length)]
+  //     } ${animals[Math.floor(Math.random() * animals.length)]}`;
+
+  //     //append string to input box
+  //     document.getElementById("output").innerHTML = name;
+  //   });
+  // });
+</script>
