@@ -1,10 +1,18 @@
 //find the shortest word
 
 const danishWords = ["bil", "plante", "kaffe", "bog", "ø", "planetarium"];
-
+const tanga = ["bill", { tanga: 1 }];
 function shortestWord(array) {
-  if (typeof array != "object") {
+  if (Array.isArray(array) === false) {
+    console.log("tanga!");
     return;
+  }
+
+  for (let i = 0; i < array.length; i++) {
+    if (typeof array[i] != "string") {
+      console.log("tanga!");
+      return;
+    }
   }
 
   let indexOfShortest = 0;
@@ -17,7 +25,7 @@ function shortestWord(array) {
     }
   }
 
-  return array[indexOfShortest];
+  console.log(array[indexOfShortest]);
 }
 
-shortestWord(danishWords); // returns 'ø'
+shortestWord(tanga); // returns 'ø'
