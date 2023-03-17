@@ -94,23 +94,34 @@ const filter = {
 };
 const filter2 = {
   type: "farm",
-  minPrize: 1500000,
+  price: 4000,
 };
+
 function filterListings(listings, filter) {
-  const filters = Object.keys(filter);
-  const acceptedFilters = ["type", "facilities", "price", "hasGarden", "size"];
+  let reducedListings = listings;
 
-  //   const valid = acceptedFilters.filter((filter) => {
-  //     if (filters.indexOf(filter) === -1) {
-  //     }
-  //   });
-
-  const filteredListings = listings.filter((x) => {
-    return;
+  Object.keys(filter).forEach((x) => {
+    if (x === "type") {
+      reducedListings = reducedListings.filter(
+        (y) => y[x].toLowerCase() === filter[x]
+      );
+    }
+    if (x === "facilities") {
+      reducedListings = reducedListings.filter((y) => y[x].includes(filter[x]));
+    }
+    if (x === "price") {
+      reducedListings = reducedListings.filter((y) => y[x] < filter[x]);
+    }
+    if (x === "hasGarden") {
+      reducedListings = reducedListings.filter((y) => y[x] === filter[x]);
+    }
+    if (x === "size") {
+      reducedListings = reducedListings.filter((y) => y[x] < filter[x]);
+    }
   });
 
-  return filteredListings.length;
+  return reducedListings;
 }
 
-console.log(filterListings(listings, filter));
-// console.log(filterListings(listings, filter2));
+// console.log(filterListings(listings, filter));
+console.log(filterListings(listings, filter2));
