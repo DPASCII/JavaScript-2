@@ -44645,5 +44645,3 @@ const ratings = updatedMovies.reduce(
   },
   { Good: 0, Average: 0, Bad: 0 }
 );
-
-console.log(ratings);
