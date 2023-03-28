@@ -1,0 +1,11 @@
+<html>
+<body>
+<button type="button">Click Here!</button>
+</body>
+</html>
+
+<script>
+const threeSeconds = function(){console.log("This text was delayed by 3 seconds")}
+function threeSecondLog(){setTimeout(threeSeconds,3000);}
+document.querySelector("button").addEventListener("click" , threeSecondLog)
+</script>

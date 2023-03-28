@@ -1,0 +1,23 @@
+<html>
+<body>
+<div>
+<button type="button">Click Here!</button>
+<button type="button">Click me instead</button>
+<div>
+</body>
+</html>
+
+<script>
+let counter = 0;
+
+const addCount = function(){
+const isButton = event.target.nodeName === 'BUTTON';
+if(!isButton){
+return;
+}
+console.log(counter);
+counter ++}
+
+document.querySelector("div").addEventListener("click" , addCount)
+
+</script>
