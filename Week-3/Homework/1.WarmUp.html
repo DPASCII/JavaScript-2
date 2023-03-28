@@ -1,0 +1,74 @@
+<html>
+<body>
+<button type="button">Click</button>
+<p></p>
+</body>
+</html>
+
+<script>
+function delayLogger(delay, stringToLog){
+setTimeout(function(){console.log(stringToLog)},delay*1000);
+}
+
+
+function earthLogger(){console.log("Earth")}
+function saturnLogger(){console.log("Saturn")}
+
+function planetLogFunction(func){
+func();
+}
+
+planetLogFunction(earthLogger);
+
+function getLocation(){
+const output = document.querySelector("p");
+
+output.textContent = ""
+
+const success = function(position){
+const lat = position.coords.latitude;
+const long =  position.coords.longitude;
+output.textContent = `Latitude: ${lat} Longitude: ${long}`;
+}
+
+const error = function(){
+output.textContent = "Fuck Off"
+}
+
+if(!navigator.geolocation){
+	output.textContent = "No such thing sir"
+} else {
+navigator.geolocation.getCurrentPosition(success,error)
+}
+}
+
+let counter = 0;
+
+function doubleClick(){
+counter ++;
+if (counter == 1){
+	singleClickTimer = setTimeout(function() {
+        counter = 0;
+        }, 500);
+} else if (counter === 2) {
+        clearTimeout(singleClickTimer);
+        counter = 0;
+	console.log("double click!")
+}
+}
+
+function jokeCreator(shouldTellFunnyJoke,logFunnyJoke,logBadJoke){
+	if(typeof shouldTellFunnyJoke != "boolean"){
+	return;
+	}
+
+	if(shouldTellFunnyJoke === true){
+	logFunnyJoke();
+	}
+	logBadJoke();
+}
+
+document.querySelector("button").addEventListener("click", (event)=>delayLogger(5,"Called after 5 seconds"));
+document.querySelector("button").addEventListener("click",getLocation);
+document.addEventListener("click",doubleClick);
+</script>
