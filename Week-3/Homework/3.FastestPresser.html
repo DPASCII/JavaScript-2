@@ -1,0 +1,67 @@
+<html>
+<body>
+<br />
+<br />
+<br />
+<header class="head">Fastest Presser</header>
+<br />
+<br />
+<br />
+
+<div class="grid-container">
+
+<div class="grid-child">
+<div class="gchild">Press S</div>
+</div>
+
+<div class="grid-child">
+<div class="gchild">Press L<div style="font-size:15px">tite</div></div>
+<br />
+</div>
+
+</div>
+
+</body>
+</html>
+
+<style>
+header {
+text-align:center;
+font-size:50px;
+}
+
+div{
+vertical-align: middle;
+}
+
+.grid-container {
+display: grid;
+grid-template-columns: 1fr 1fr;
+}
+
+.grid-child{
+display:flex;
+justify-content:center;
+text-align:center;
+align-items:center;
+border-top:2px solid black;
+height:200px;
+}
+
+.grid-child:first-child {
+border-right:1px solid black;
+}
+
+.grid-child:nth-child(2) {
+border-left:1px solid black;
+}
+
+.gchild{
+font-size:25px;
+}
+
+p{
+font-size:15px;
+}
+
+</style>
